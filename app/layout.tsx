@@ -15,6 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Muslim Ummah Cemetery Fundraising Signup",
   description: "Volunteer signup and event management system for Muslim Ummah Cemetery fundraising activities",
+  openGraph: {
+    title: "Muslim Ummah Cemetery Fundraising Signup",
+    description: "Volunteer signup and event management system for Muslim Ummah Cemetery fundraising activities",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Muslim Ummah Cemetery Fundraising Signup",
+    description: "Volunteer signup and event management system for Muslim Ummah Cemetery fundraising activities",
+  },
 };
 
 export default function RootLayout({
