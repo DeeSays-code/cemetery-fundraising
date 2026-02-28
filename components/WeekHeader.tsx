@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ChevronLeft, ChevronRight, Calendar, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { formatDayHeader, isToday } from '@/lib/utils-calendar';
 import { motion } from 'framer-motion';
@@ -11,7 +11,6 @@ interface WeekHeaderProps {
   onPrevWeek: () => void;
   onNextWeek: () => void;
   onToday: () => void;
-  onExportPDF: () => void;
   canGoPrev: boolean;
   canGoNext: boolean;
 }
@@ -21,7 +20,6 @@ export function WeekHeader({
   onPrevWeek,
   onNextWeek,
   onToday,
-  onExportPDF,
   canGoPrev,
   canGoNext,
 }: WeekHeaderProps) {
@@ -67,16 +65,6 @@ export function WeekHeader({
               <ChevronRight className="w-4 h-4" />
             </Button>
           </div>
-
-          <Button
-            onClick={onExportPDF}
-            variant="default"
-            size="sm"
-            className="bg-[#1F5A2E] hover:bg-[#154021] text-white transition-colors"
-          >
-            <Download className="w-4 h-4 mr-2" />
-            Export PDF
-          </Button>
         </div>
       </div>
 

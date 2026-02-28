@@ -44,16 +44,7 @@ import type {
   Event,
 } from '@/lib/types';
 
-interface CalendarGridProps {
-  onExportPDF: (data: {
-    weekStart: Date;
-    weekDays: Date[];
-    daysData: Record<string, DayState>;
-    roles: RoleDefinition[];
-  }) => void;
-}
-
-export function CalendarGrid({ onExportPDF }: CalendarGridProps) {
+export function CalendarGrid() {
   // Core state
   const [weekStart, setWeekStart] = useState<Date>(() => getWeekStart(new Date()));
   const [daysData, setDaysData] = useState<Record<string, DayState>>({});
@@ -304,16 +295,6 @@ export function CalendarGrid({ onExportPDF }: CalendarGridProps) {
     setInfoSelection({ type: 'role', roleId, roleLabel });
   };
 
-  // PDF export handler
-  const handleExportPDF = () => {
-    onExportPDF({
-      weekStart,
-      weekDays,
-      daysData,
-      roles,
-    });
-  };
-
   return (
     <div className="max-w-[1600px] mx-auto p-4 md:p-6">
       {/* Week header with navigation */}
@@ -322,7 +303,6 @@ export function CalendarGrid({ onExportPDF }: CalendarGridProps) {
         onPrevWeek={handlePrevWeek}
         onNextWeek={handleNextWeek}
         onToday={handleToday}
-        onExportPDF={handleExportPDF}
         canGoPrev={canGoPrev}
         canGoNext={canGoNext}
       />
