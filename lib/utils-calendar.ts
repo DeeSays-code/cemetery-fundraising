@@ -154,35 +154,6 @@ export function isDuplicateVolunteer(
   );
 }
 
-/**
- * Check if volunteer exists in other days of the same role (helpful warning)
- */
-export function findVolunteerInOtherDays(
-  allDays: Record<string, DayState>,
-  roleId: string,
-  currentDate: string,
-  name: string,
-  phone: string
-): string[] {
-  const cleanedPhone = cleanPhone(phone);
-  const matchingDates: string[] = [];
-
-  Object.entries(allDays).forEach(([date, dayState]) => {
-    if (date === currentDate) return; // Skip current day
-
-    const volunteers = dayState.roles[roleId] || [];
-    const hasMatch = volunteers.some(
-      (v) => v.name.trim().toLowerCase() === name.trim().toLowerCase() &&
-             v.phone === cleanedPhone
-    );
-
-    if (hasMatch) {
-      matchingDates.push(date);
-    }
-  });
-
-  return matchingDates;
-}
 
 /**
  * Generate unique ID
